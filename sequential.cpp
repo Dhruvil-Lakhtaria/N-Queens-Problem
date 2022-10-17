@@ -2,6 +2,20 @@
    backtracking */
   
 #include <bits/stdc++.h>
+#include <chrono>
+#include <iostream>
+#include <sys/time.h>
+#include <ctime>
+#include <algorithm>
+#include<vector>
+
+using namespace std;
+using namespace std::chrono;
+using std::cout; using std::endl;
+using std::chrono::duration_cast;
+using std::chrono::milliseconds;
+using std::chrono::seconds;
+using std::chrono::system_clock;
 using namespace std;
   
 /* A utility function to print solution */
@@ -97,21 +111,19 @@ bool solveNQ()
         return false;
     }
   
-    printSolution(board);
+    // printSolution(board);
     return true;
 }
   
 // driver program to test above function
 int main()
 {
-    time_t start,end;
-    time(&start);
+
+    auto start = high_resolution_clock::now();
     solveNQ();
-    time(&end);
-    double time_taken = double(end - start);
-    cout<<start<<" "<<end<<"\n";
-    cout << "Time taken by program is : " << fixed
-         << time_taken << setprecision(6);
-    cout << " sec " << endl;
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "Time taken by function: "
+         << duration.count()/1000.000 << " milliseconds" << endl;
     return 0;
 }
