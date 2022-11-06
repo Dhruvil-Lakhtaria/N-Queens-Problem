@@ -111,7 +111,7 @@ bool solveNQ()
         return false;
     }
   
-    // printSolution(board);
+    printSolution(board);
     return true;
 }
   
